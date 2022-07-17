@@ -1,0 +1,11 @@
+<h1>PAGINA SHOW</h1>
+<p style="color: green"><%= notice %></p>
+
+<%= render @client %>
+
+<div>
+  <%= link_to "Editar mi requirimiento", edit_client_path(@client) %> |
+  <%= link_to "Volver al Home", pages_index_path %>
+
+  <%= button_to "Borrar mi requirimiento", @client, method: :delete %>
+</div>
