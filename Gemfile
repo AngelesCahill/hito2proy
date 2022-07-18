@@ -71,6 +71,4 @@ group :test do
   gem "webdrivers"
 end
 gem 'rest-client'
-gem 'kaminari'
-gem 'bootstrap4-kaminari-views'
-gem 'bootstrap_form'
+gem "will_paginate"

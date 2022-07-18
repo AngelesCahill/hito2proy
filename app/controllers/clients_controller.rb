@@ -3,17 +3,17 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.all
     if params[:mail].present?
     @client = Client.where('mail = ?', params[:mail])
     else
-    @client = Client.all
+    @client = Client.all.paginate({page: params[:page], per_page:20})
     end
     
   end
 
   # GET /clients/1 or /clients/1.json
   def show
+    
   end
 
   # GET /clients/new
@@ -72,6 +72,6 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.require(:client, :page).permit(:name, :lastname, :rut, :phone, :mail, :commune, :region, :project)
+      params.require(:client).permit(:name, :lastname, :rut, :phone, :mail, :commune, :region, :project)
     end
 end
